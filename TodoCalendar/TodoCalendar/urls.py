@@ -19,7 +19,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('', include('TodoCalendarApp.urls')),
-    path('user/', include('django.contrib.auth.urls')),
-    path('user/', include('UserLogin.urls')),
+    path('users/', include('django.contrib.auth.urls')),
+    path('users/', include('UserLogin.urls')),
     path('admin/', admin.site.urls),
 ]
