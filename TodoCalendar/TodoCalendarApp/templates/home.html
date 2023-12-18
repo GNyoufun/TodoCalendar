@@ -1,5 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'base/base.html' %}
 
 {% block content %}
-<h1> Home Page </h1>
+
+<section class="homeBase">
+    <div class="Todo">
+        <div> 
+            <label class="checks">One <!-- the todo list item, pass in with ordering number to id the item -->
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+            </label>              
+        </div>
+    </div>
+    <div class="Calendar">
+        <p> Calendar </p>
+    </div>
+    <div class="Summary">
+        <p> Summary </p>
+    </div>
+</section>
+
 {% endblock %}
