@@ -1,0 +1,83 @@
+
+.clearfix{
+	clear: both;
+}
+
+/* required */
+.calendar{
+	position: relative;
+	border-radius: 4px;
+	overflow: hidden;
+	width: 800px;
+  margin-left: -150px;
+	background-color: #ffffff;
+	color: #333333;
+  padding: 20px;
+  align-content: center;
+}
+
+.calendar .weekday li,
+.calendar .days li{
+	float: left;
+	text-transform: uppercase;
+  list-style: none;
+  /* border-style: solid; */
+}
+
+.calendar .weekday li{
+  width: 100px;
+	margin-bottom: 20px;
+  padding-right: 40px;
+
+	text-align: center;
+	font-size: 36px;
+  font-weight: bold;
+  
+  display: block;
+	color: #747978;
+  border-style: solid;
+}
+
+.calendar .days li{
+	width: 55px;
+  padding-right: 100px;
+}
+
+.calendar .days li a{
+	width: 72px;
+	height: 48px;
+	text-align: center;
+	margin: auto auto;
+	font-size: 24px;
+	font-weight: bold;
+	border-radius: 12px;
+	margin-bottom: 10px;
+  border-style: solid;
+  display: block;
+	color: #747978;
+  text-decoration: none; 
+}
+
+
+.calendar .days li a:hover{
+	background-color: #EEEDE9;
+}
+
+.calendar .days li .selected{
+	background-color: #F5A1A3!important;
+  border-color: #F5A1A3;
+	color: #ffffff;
+}
+
+.calendar .days li .event{
+	color: #F5A1A3;
+}
+
+.calendar .days li .today{
+	color: #ed4548;
+}
+
+.calendar .days li .blank{
+	color: #F5A1A3;
+  border-style: none;
+}

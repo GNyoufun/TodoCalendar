@@ -14,12 +14,23 @@ import calendar
 def home(request, year=date.today().year, month = date.today().month):
     if month > 12 or month < 1:
         messages.warning(request, "The month entered are invalid, please enter valid month.")
-        curMonth = date.today().month
+        month = date.today().month
 
-        return render(request,'home.html', {"year": year, "month": curMonth})
+    first, numDay = calendar.monthrange(year, month)
+    if (year == date.today().year and month == date.today().month):
+        today =  date.today().day
+    else:
+        today = 0
+    
     month = list(calendar.month_name)[month]
 
-    return render(request, 'home.html', {"year": year, "month": month})
+    return render(request, 'home.html', {
+                    "year": year, 
+                    "month": month, 
+                    "first": first, 
+                    "numDay": numDay,
+                    "today": today,
+                    })
 
 def todoAddOn(request):
     if request.method == 'POST':

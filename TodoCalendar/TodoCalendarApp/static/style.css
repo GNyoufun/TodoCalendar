@@ -23,25 +23,55 @@ footer {
 
 .homeBase {
     height: 100%;
-    width: 90%;
+    width: 99%;
 
     display: grid;
     grid:
         "Todo Calendar" auto
         "Todo Summary" auto
         / 40% 60%;
-    gap: 8px;
+    gap: 1%;
+
 }
-.Todo { 
+.Todo-grid { 
     grid-area: Todo; 
+
 }
 
-.Calendar { 
+.Calendar-grid { 
     grid-area: Calendar; 
+    
 }
 
-.Summary { 
+.Summary-grid { 
     grid-area: Summary; 
+
+}
+
+.CalendarBase{
+    height: 100%;
+    width: 90%;
+
+    display: grid;
+    grid:
+        "CalendarItems CalendarDisplay" auto
+        / 40% 60%;
+    gap: 8px;
+
+}
+
+.CalendarItems{
+    grid-area: CalendarItems;
+
+}
+
+.CalendarDisplay{
+    grid-area: CalendarDisplay;
+
+}
+
+.todoItems{
+    padding-left: 20px;
 }
 
 /* Customize the label (the checks) */

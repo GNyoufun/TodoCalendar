@@ -1,23 +1,62 @@
-{% extends 'base/base.html' %}
+{% extends 'base/base.html' %} {% load static %} {% load extra %}
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'calendar.css' %}?{% cache_bust %}" />
+{% endblock %}
 
 {% block content %}
 
 <section class="homeBase">
-    <div class="Todo">
-        <div> 
+    <div class="Todo-grid">
+        <div class="todoItems"> 
             <label class="checks">One <!-- the todo list item, pass in with ordering number to id the item -->
                 <input type="checkbox" checked="checked">
                 <span class="checkmark"></span>
             </label>              
         </div>
     </div>
-    <div class="Calendar">
-        <h1> Calendar </h1>
-        <h1> Year: {{ year }} </h1>
-        <h1> Month: {{ month }} </h1>
+    <div class="Calendar-grid">
+        <section class="CalendarBase">
+            <div class="CalendarItems">
+                <h1> Calendar </h1>
+            </div>
+            <div class="CalendarDisplay">
+                <div class="calendar">
+                    <ul class="weekday">
+                        <li title="Mon" data-value="1">Mon</li>
+                        <li title="Tue" data-value="2">Tue</li>
+                        <li title="Wed" data-value="3">Wed</li>
+                        <li title="Thu" data-value="4">Thu</li>
+                        <li title="Fri" data-value="5">Fri</li>
+                        <li title="Say" data-value="6">Sat</li>
+                        <li title="Sun" data-value="7">Sun</li>
+                    </ul>
+                    <div class="clearfix"></div>
+                    <ul class="days">
+                        <script>
+                            var blanks = "{{first}}"
+                            var monthRange = "{{numDay}}"
+                            var today = "{{today}}"
+
+                            for (var _i = 0 ; _i < blanks; _i++) {
+                                var _addClass = 'class="blank"';
+                                var blank = "\u2003"; 
+                                document.write( '<li '+_addClass+'>'+blank+'</li>' );
+                            }
         
+                            for( var _i = 1; _i <= monthRange; _i += 1 ){
+                                var _addClass = '';
+                                if( parseInt(_i, 10) === parseInt(today, 10) ){ _addClass = ' class="today"';}
+                
+                                document.write( '<li><a href="#" title="'+_i+'" data-value="'+_i+'"'+_addClass+'>'+_i+'</a></li>' );
+                            }
+                            </script>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="Summary">
+    <div class="Summary-grid">
         <p> Summary </p>
     </div>
 </section>
