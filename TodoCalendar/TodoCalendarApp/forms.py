@@ -3,6 +3,6 @@ from . import models
 
 class Todo(forms.ModelForm):
     class Meta:
-        model = models.todo
+        model = models.Todo
         exclude = ["openDate"]
         # exclude = ('owner') #! add on after user login 
