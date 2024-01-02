@@ -10,7 +10,6 @@ class User(AbstractBaseUser):
         unique=True, # a primary key
     )
     is_active = models.BooleanField(default=True)
-    # is_admin = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
     
     USERNAME_FIELD = "email"
@@ -44,3 +43,10 @@ class Todo(models.Model):
     def __str__(self):
         return self.taskName
 
+class CalendarItem(models.Model):
+    eventTitle = models.CharField(max_length=100)
+    startTime = models.DateTimeField()
+    endTime   = models.DateTimeField()
+    reminderTime = models.DateTimeField()
+    description = models.TextField(null=True, blank=True)
+    #! maybe including emails

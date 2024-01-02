@@ -39,5 +39,4 @@ def todoAddOn(request):
             return HttpResponseRedirect('/home/')
     else:
         form = forms.Todo()
-        labels = list(models.Labels.objects.all())
-    return render(request, "TodoAddOn.html", {'form': form, "labels": labels})
+    return render(request, "TodoAddOn.html", {'form': form})

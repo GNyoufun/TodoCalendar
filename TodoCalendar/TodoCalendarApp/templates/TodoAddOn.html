@@ -1,28 +1,33 @@
 {% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
     <h1>Create New Todo</h1>
-    <form enctype="multipart/form-data" method="post" >
-        {% csrf_token %}
-        <ul style="list-style: none; ">
-            <li> taskName: {{ form.taskName }}</li>
-            <li> label: 
-                <select name="labels" id="labels">
-                    {% for label in labels %}
-                    <option value="{{ label.labels }}">{{ label.labels }}</option>
-                    {% endfor %}
-                </select>
-            </li>
-            <li> dueDate: <input type="datetime-local" name="dueDate"></input> </li>
-            <li> taskDescription: </li> 
-            <li>{{ form.taskDescription }}</li>
-        </ul>
-        <input type="submit" value="Submit">
-    </form>
-    <script type="text/javascript"> 
-        $(function(){
-            $("#dueDate").datetimepicker();
-        });
-    </script>
+    <div style="padding: 20px;">
+        <form enctype="multipart/form-data" method="post" >
+            {% csrf_token %}
+            {{form|crispy}}
+            <div>
+                Due Date: <input type="datetime-local" name="dueDate"></input> 
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+
+
+
+    {% block scripts %}
+        <script type="text/javascript"> 
+            $(function(){
+                $("#dueDate").datetimepicker();
+            });
+        </script>
+        
+        <script> 
+            $("#id_label").select2()
+        </script>
+
+    {% endblock %}
 {% endblock %}
