@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib import messages
 
-from . import forms
+from . import forms, models
 
 from datetime import date
 
@@ -39,4 +39,5 @@ def todoAddOn(request):
             return HttpResponseRedirect('/home/')
     else:
         form = forms.Todo()
-    return render(request, "TodoAddOn.html", {'form': form})
+        labels = list(models.Labels.objects.all())
+    return render(request, "TodoAddOn.html", {'form': form, "labels": labels})

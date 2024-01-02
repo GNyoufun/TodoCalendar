@@ -1,12 +1,19 @@
 {% extends 'base/base.html' %}
 
+
 {% block content %}
     <h1>Create New Todo</h1>
     <form enctype="multipart/form-data" method="post" >
         {% csrf_token %}
         <ul style="list-style: none; ">
             <li> taskName: {{ form.taskName }}</li>
-            <li> label: {{ form.label }}</li>
+            <li> label: 
+                <select name="labels" id="labels">
+                    {% for label in labels %}
+                    <option value="{{ label.labels }}">{{ label.labels }}</option>
+                    {% endfor %}
+                </select>
+            </li>
             <li> dueDate: <input type="datetime-local" name="dueDate"></input> </li>
             <li> taskDescription: </li> 
             <li>{{ form.taskDescription }}</li>

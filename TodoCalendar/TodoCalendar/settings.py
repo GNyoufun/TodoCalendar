@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "TodoCalendarApp",
     "UserLogin",
+    'django_select2',
 ]
 
 MIDDLEWARE = [
